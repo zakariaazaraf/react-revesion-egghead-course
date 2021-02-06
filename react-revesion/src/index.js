@@ -12,6 +12,7 @@ import Body from './Body'
   document.getElementById('root')
 ); */
 
+// CREATE REACT ELEMENT USING API
 const reactElement = React.createElement('div', {
   className: 'container',
   children: [
@@ -22,9 +23,8 @@ const reactElement = React.createElement('div', {
     React.createElement('p', null, 'second Paragraph')
   ],  
   style: {color: 'red'}
-}/* , 'Hellow React this is A react Element' */)
+})
 
 ReactDOM.render(reactElement, document.getElementById('root'))
-console.log(typeof reactElement)
 console.log(reactElement)
 
