@@ -37,6 +37,7 @@ const Message = props => <div className = 'message'>{props.children}</div>
 
 const element = (
   <>
+    <h2>Funstion Compenent With children Nesting & Manipulation</h2>
     <div className='container'>
       Hello this rendrened by the <strong>jsx</strong> syntax {
         <>
@@ -56,11 +57,12 @@ const element = (
 )
 
 ReactDOM.render(element, document.getElementById('root'))
-console.log(<Message>third call</Message>)
+//console.log(<Message>third call</Message>)
 
 const SayHello = ({firstProp, secondProp}) => {
   return (
-    <>  
+    <>
+      <h2>propTypes Revesion</h2>  
       Hello FirstProp: {firstProp}, secondProp: {secondProp}
     </>
   )
@@ -68,7 +70,8 @@ const SayHello = ({firstProp, secondProp}) => {
 
 // VALIDATE THE COPMENENT Hard Coded
 SayHello.propTypes = {
-  firstProp(prop, propName, compenentName){
+  // HARD CODED
+  /* firstProp(prop, propName, compenentName){
     function isEmpty(object){
       for(let pr in object){
         if(object.hasOwnProperty(pr)){
@@ -78,12 +81,16 @@ SayHello.propTypes = {
       return false
     }
     if(!isEmpty(prop)){
-      return new Error(`Hey, the ${propName} Required childrens`)
+      return new Error(`Hey, the ${compenentName} Compenent Required ${propName} children`)
     }
-  }
+  } */  
+
+  // USE THE REACT PACKGE
+  firstProp: propTypes.string.isRequired,
+  secondProp: propTypes.string.isRequired
 }
 
-ReactDOM.render(<SayHello firstProp= 'First Prop Passed'/>, document.getElementById('propTypes'))
+ReactDOM.render(<SayHello firstProp = {23} secondProp = 'Second Prop Passed'/>, document.getElementById('propTypes'))
   
 
 
