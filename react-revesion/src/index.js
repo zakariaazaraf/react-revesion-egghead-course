@@ -27,12 +27,16 @@ const reactElement = React.createElement('div', {
 
 // TRY RENDRENING BY THE JSX SYNTAX
 
-const firstChildren = React.createElement('span', {style: {color: 'red'}}, 'first content')
+/* const firstChildren = React.createElement('span', {style: {color: 'red'}}, 'first content')
 const secondChildren = React.createElement('span', {style: {color: 'blue'}}, 'second content')
-const fragment = React.createElement(React.Fragment, null, firstChildren, secondChildren)
+const fragment = React.createElement(React.Fragment, null, firstChildren, secondChildren) */
 const element = (
   <div className='container'>
-    Hello this rendrened by the <strong>jsx</strong> syntax {fragment}
+    Hello this rendrened by the <strong>jsx</strong> syntax {
+      <>
+        <span>Hello</span> <span>World !</span>
+      </>
+    }
     <p>
         paragraph conntent
     </p>
@@ -41,6 +45,6 @@ const element = (
 )
 
 ReactDOM.render(element, document.getElementById('root'))
-console.log(fragment)
+
 
 
