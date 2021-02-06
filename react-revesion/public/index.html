@@ -8,13 +8,18 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    
-
     <title>React App</title>
   </head>
   <body>
     
     <div id="root"></div>
-
+    <div id="secondRoot"></div>
+    <script>
+      const root = document.getElementById('secondRoot')
+      let newElement = document.createElement('div')
+      newElement.textContent = 'Hi This Div Section Rendred By Vanilla Js'
+      newElement.ClassName = 'container'
+      root.appendChild(newElement)
+    </script>
   </body>
 </html>
