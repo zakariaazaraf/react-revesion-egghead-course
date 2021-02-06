@@ -14,12 +14,20 @@
     
     <div id="root"></div>
     <div id="secondRoot"></div>
+    <div id="recatElement"></div>
+    <div id="propTypes"></div>
     <script>
       const root = document.getElementById('secondRoot')
-      let newElement = document.createElement('div')
+      const reactElement = document.getElementById('reactElement')
+
+      // CREATE ELEMENT BY VANILLA JS AKA DOM
+      const newElement = document.createElement('div')
       newElement.textContent = 'Hi This Div Section Rendred By Vanilla Js'
       newElement.ClassName = 'container'
       root.appendChild(newElement)
+
+      // CREATE ELEMENT BY REACT CREATE METHOS
+      
     </script>
   </body>
 </html>
