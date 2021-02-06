@@ -30,21 +30,31 @@ const reactElement = React.createElement('div', {
 /* const firstChildren = React.createElement('span', {style: {color: 'red'}}, 'first content')
 const secondChildren = React.createElement('span', {style: {color: 'blue'}}, 'second content')
 const fragment = React.createElement(React.Fragment, null, firstChildren, secondChildren) */
+
+// FUNCTION COMPENENT
+const Message = props => <div className = 'message'>{props.children}</div>
 const element = (
-  <div className='container'>
-    Hello this rendrened by the <strong>jsx</strong> syntax {
-      <>
-        <span>Hello</span> <span>World !</span>
-      </>
-    }
-    <p>
-        paragraph conntent
-    </p>
-  </div>
-  
+  <>
+    <div className='container'>
+      Hello this rendrened by the <strong>jsx</strong> syntax {
+        <>
+          <span>Hello</span> <span>World !</span>
+        </>
+      }
+      <p>
+          paragraph conntent
+      </p>
+    </div>
+    {/* call the func compenent */}
+    <Message> {/* FIRST SYNTAX OF FUNC COMPENENT */}
+      Message compenent first call
+      <Message children='second call'/> {/* SECOND STNTAX OF FUNC COMPENENT */}
+    </Message>
+  </>
 )
 
 ReactDOM.render(element, document.getElementById('root'))
+console.log(<Message>third call</Message>)
 
 
 
