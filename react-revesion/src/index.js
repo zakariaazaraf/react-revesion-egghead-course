@@ -167,13 +167,13 @@ const Greeting = () => {
         <div>
           <label htmlFor='firstname'>firstName</label>
           <input id='firstname' onChange={handelFirstname}/>
-          {prenom ?  <strong>{prenom}</strong>  : 'Enter First Name'}
+          {prenom ?  <>Hello, <strong>{prenom}</strong> </> : 'Enter First Name'}
         </div>
 
         <div>
           <label htmlFor='lastname'>lastname</label>
           <input id='lastname' onChange= {handelLastname}/>
-          {lastname ? <strong>{lastname}</strong> : 'Enter Last Name'}
+          {lastname ? <> Hello, <strong>{lastname}</strong> </> : 'Enter Last Name'}
         </div>
       </form>
     </>
