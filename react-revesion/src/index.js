@@ -6,6 +6,7 @@ import App from './App';
 import Body from './Body'
 import './styledCompenent.css'
 
+
 /* ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -109,6 +110,49 @@ const styledCompenent = <div>
 </div>
 
 ReactDOM.render(styledCompenent, document.getElementById('styledCompenent'))
+
+// CURRENT STATET
+  const state = {counter: 0, username: ''}
+
+// HANDEL EVENT 
+function StateHard (){
+
+  function handelClick(){
+    setState({counter: state.counter + 1})
+  }
+
+  function handelChange(e){
+    setState({username: e.target.value})
+  }
+
+  return (
+    <>
+      <h2>Hnadel Event Hard Coded</h2>
+      <div>
+        <p>There have been {state.counter} events</p>
+        <div><button onClick={handelClick}>Click Me</button></div>
+      </div>
+
+      <div>
+        <div><input onChange={handelChange} type='text' name='counter'/></div>
+        <p>You Typed: {state.username}</p>
+      </div>
+    </>
+  )
+}
+
+function setState(newState){
+      Object.assign(state, newState)
+      renderApp()
+  }
+
+function renderApp () {
+  ReactDOM.render(<StateHard/>, document.getElementById('handelEvenet'))
+}
+renderApp()
+
+
+
   
 
 
