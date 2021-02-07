@@ -151,6 +151,36 @@ function renderApp () {
 }
 renderApp()
 
+// UEE HOCK STATE
+
+const Greeting = () => {
+  const [prenom, setPrenom] = React.useState('')
+  const handelFirstname = e => setPrenom(e.target.value)
+
+  const [lastname, setLastname] = React.useState('')
+  const handelLastname = e => setLastname(e.target.value)
+
+  return (
+    <>
+      <h2>Handel useState hock</h2>
+      <form>
+        <div>
+          <label htmlFor='firstname'>firstName</label>
+          <input id='firstname' onChange={handelFirstname}/>
+          {prenom ?  <strong>{prenom}</strong>  : 'Enter First Name'}
+        </div>
+
+        <div>
+          <label htmlFor='lastname'>lastname</label>
+          <input id='lastname' onChange= {handelLastname}/>
+          {lastname ? <strong>{lastname}</strong> : 'Enter Last Name'}
+        </div>
+      </form>
+    </>
+  )
+}
+
+ReactDOM.render(<Greeting />, document.getElementById('stateHock'))
 
 
   
