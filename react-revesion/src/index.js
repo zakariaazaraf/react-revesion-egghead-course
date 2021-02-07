@@ -153,11 +153,21 @@ renderApp()
 
 // UEE HOCK STATE
 
+function useLocalStorageState(key, defaultValue){
+  const [state, setState] = React.useState(() => localStorage.getItem(key) || defaultValue)
+
+  React.useEffect(()=>{
+    localStorage.setItem(key, state)
+  }, [key, state])
+  return [state, setState]
+}
+
 const Greeting = () => {
 
   /* const [prenom, setPrenom] = React.useState(localStorage.getItem('firstname') || '') */
   //Use Lazy Initilizer With useState => Get data when it's nessary {First Time In Thhis Case}
-  const [prenom, setPrenom] = React.useState(() => localStorage.getItem('firstname') || '')
+  /* const [prenom, setPrenom] = React.useState(() => localStorage.getItem('firstname') || '') */
+  const [prenom, setPrenom] = useLocalStorageState('firstname', '')
   const handelFirstname = e => setPrenom(e.target.value)
 
   const [lastname, setLastname] = React.useState( localStorage.getItem('lastname') || '')
@@ -165,7 +175,7 @@ const Greeting = () => {
 
   // USE useEffect
   React.useEffect(()=>{
-    window.localStorage.setItem('firstname', prenom)
+    //window.localStorage.setItem('firstname', prenom)
     window.localStorage.setItem('lastname', lastname)
   },)
 
