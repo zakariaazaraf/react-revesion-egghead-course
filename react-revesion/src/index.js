@@ -4,6 +4,7 @@ import propTypes, { object } from 'prop-types'
 import './index.css';
 import App from './App';
 import Body from './Body'
+import './styledCompenent.css'
 
 /* ReactDOM.render(
   <React.StrictMode>
@@ -90,7 +91,24 @@ SayHello.propTypes = {
   secondProp: propTypes.string.isRequired
 }
 
-ReactDOM.render(<SayHello firstProp = {23} secondProp = 'Second Prop Passed'/>, document.getElementById('propTypes'))
+ReactDOM.render(<SayHello firstProp ='First Prop Passed' secondProp = 'Second Prop Passed'/>, document.getElementById('propTypes'))
+
+// STARTING THE STYLE REVESION
+const StyledCompenent = ({className, size, style, ...restProps}) => {
+  const generateSize = size ? `box--${size}` : ''
+  return (
+    <div className={`box ${generateSize}`} style={{fontStyle: 'italic', ...style}} {...restProps} />
+  )
+}
+
+const styledCompenent = <div>
+  <h2>Styled Compenent</h2>
+  <StyledCompenent size='small' style= {{ backgroundColor: 'blue' }}>Smaller Box</StyledCompenent>
+  <StyledCompenent size='medium' style={{ backgroundColor: 'pink' }}>Medium Box</StyledCompenent>
+  <StyledCompenent size='larger' style={{ backgroundColor: 'greenyellow' }}>Larger Box</StyledCompenent>
+</div>
+
+ReactDOM.render(styledCompenent, document.getElementById('styledCompenent'))
   
 
 
