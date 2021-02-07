@@ -154,25 +154,32 @@ renderApp()
 // UEE HOCK STATE
 
 const Greeting = () => {
-  const [prenom, setPrenom] = React.useState('')
+
+  const [prenom, setPrenom] = React.useState( localStorage.getItem('firstname') || '')
   const handelFirstname = e => setPrenom(e.target.value)
 
-  const [lastname, setLastname] = React.useState('')
+  const [lastname, setLastname] = React.useState( localStorage.getItem('lastname') || '')
   const handelLastname = e => setLastname(e.target.value)
+
+  // USE useEffect
+  React.useEffect(()=>{
+    window.localStorage.setItem('firstname', prenom)
+    window.localStorage.setItem('lastname', lastname)
+  },)
 
   return (
     <>
       <h2>Handel useState hock</h2>
-      <form>
+      <form style={{fontSize: '1.5rem', margin: '1rem'}}>
         <div>
           <label htmlFor='firstname'>firstName</label>
-          <input id='firstname' onChange={handelFirstname}/>
+          <input id='firstname' onChange={handelFirstname} value={prenom}/>
           {prenom ?  <>Hello, <strong>{prenom}</strong> </> : 'Enter First Name'}
         </div>
 
         <div>
           <label htmlFor='lastname'>lastname</label>
-          <input id='lastname' onChange= {handelLastname}/>
+          <input id='lastname' onChange= {handelLastname} value={lastname}/>
           {lastname ? <> Hello, <strong>{lastname}</strong> </> : 'Enter Last Name'}
         </div>
       </form>
