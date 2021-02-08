@@ -203,14 +203,23 @@ ReactDOM.render(<Greeting />, document.getElementById('stateHock'))
 
 // FROM AND VALIDATION ON THE FLY
 function Form(){
+  
+  const [username, setUsername] = React.useState('')
+  const isLowaerCase = username === username.toLowerCase()
+  const usernameError = isLowaerCase ? '' : 'Username Must Be Lower Case'
+
+  const handelUsername = (event) => setUsername(event.target.value) 
+
+  const handelEmail = () => {}
+
   const handelSubmitForm = (event)=> {
     event.preventDefault()
     // SELECTING INPUTS METHODS
     //const username = document.querySelector('form input#username').value
     //const username = event.target[0].value 
-    
+
     const username = event.target.username.value
-    console.dir(username)
+    
   }
   return(
     <>
@@ -218,13 +227,13 @@ function Form(){
       <form onSubmit={handelSubmitForm}>
         <div>
           <label htmlFor='username'>Username:</label>
-          <input id='username' type='text'/>
-          <p></p>
+          <input id='username' type='text' onChange={handelUsername}/>
+          <p style={{color: 'red'}}>{usernameError}</p>
         </div>
         
         <div>
           <label htmlFor='email'>Email</label>
-          <input id='email' type='email'/>
+          <input id='email' type='email' onChange={handelEmail}/>
           <p></p>
         </div>
         <button type='submit'>Submit</button>
