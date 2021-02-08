@@ -205,12 +205,15 @@ ReactDOM.render(<Greeting />, document.getElementById('stateHock'))
 function Form(){
   
   const [username, setUsername] = React.useState('')
-  const isLowaerCase = username === username.toLowerCase()
-  const usernameError = isLowaerCase ? '' : 'Username Must Be Lower Case'
+  const [email, setEmail] = React.useState('')
 
+  const isLowaerCase =  inputName => inputName === inputName.toLowerCase()
+  const usernameError = isLowaerCase(username) ? '' : 'Username Must Be Lower Case'
+  // HANDEL USERNAME FUNCTION 
   const handelUsername = (event) => setUsername(event.target.value) 
 
-  const handelEmail = () => {}
+  const emailError = isLowaerCase(email) ? '' : 'Email Must Be Lower Case'
+  const handelEmail = (event) => setEmail(event.target.value)
 
   const handelSubmitForm = (event)=> {
     event.preventDefault()
@@ -234,7 +237,7 @@ function Form(){
         <div>
           <label htmlFor='email'>Email</label>
           <input id='email' type='email' onChange={handelEmail}/>
-          <p></p>
+          <p style={{color: 'red'}}>{emailError}</p>
         </div>
         <button type='submit'>Submit</button>
       </form>
