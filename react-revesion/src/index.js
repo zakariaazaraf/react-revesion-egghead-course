@@ -203,19 +203,27 @@ ReactDOM.render(<Greeting />, document.getElementById('stateHock'))
 
 // FROM AND VALIDATION ON THE FLY
 function Form(){
-
+  const handelSubmitForm = (event)=> {
+    event.preventDefault()
+    // SELECTING INPUTS METHODS
+    //const username = document.querySelector('form input#username').value
+    //const username = event.target[0].value 
+    
+    const username = event.target.username.value
+    console.dir(username)
+  }
   return(
     <>
       <h2>Form Validation</h2>
-      <form>
+      <form onSubmit={handelSubmitForm}>
         <div>
-          <label htmlForm='username'>Username:</label>
+          <label htmlFor='username'>Username:</label>
           <input id='username' type='text'/>
           <p></p>
         </div>
         
         <div>
-          <label htmlForm='email'>Email</label>
+          <label htmlFor='email'>Email</label>
           <input id='email' type='email'/>
           <p></p>
         </div>
