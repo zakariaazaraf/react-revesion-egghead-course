@@ -239,7 +239,7 @@ function Form(){
           <input id='email' type='email' onChange={handelEmail}/>
           <p style={{color: 'red'}}>{emailError}</p>
         </div>
-        <button type='submit'>Submit</button>
+        <button type='submit' disabled={Boolean(usernameError) || Boolean(emailError)}>Submit</button>
       </form>
     </>
   )
