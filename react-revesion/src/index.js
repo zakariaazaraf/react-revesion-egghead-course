@@ -221,7 +221,7 @@ function Form(){
     //const username = document.querySelector('form input#username').value
     //const username = event.target[0].value 
 
-    const username = event.target.username.value
+    alert(`You Entered: \n Usrename: ${username} \n Email: ${email}`)
     
   }
   return(
