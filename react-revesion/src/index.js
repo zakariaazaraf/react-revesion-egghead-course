@@ -201,6 +201,32 @@ const Greeting = () => {
 
 ReactDOM.render(<Greeting />, document.getElementById('stateHock'))
 
+// FROM AND VALIDATION ON THE FLY
+function Form(){
+
+  return(
+    <>
+      <h2>Form Validation</h2>
+      <form>
+        <div>
+          <label htmlForm='username'>Username:</label>
+          <input id='username' type='text'/>
+          <p></p>
+        </div>
+        
+        <div>
+          <label htmlForm='email'>Email</label>
+          <input id='email' type='email'/>
+          <p></p>
+        </div>
+        <button type='submit'>Submit</button>
+      </form>
+    </>
+  )
+}
+
+ReactDOM.render(<Form />, document.getElementById('formValidate'))
+
 
   
 
